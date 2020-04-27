@@ -45,29 +45,32 @@ static void		color_box(int height, int x_start, int width, t_img *img)
 	}
 }
 
-static void		lgd_txt(void *mlx_ptr, void *win_ptr, t_player *player,
-		int pos_y)
+static void		lgd_txt(void *mptr, void * wptr, t_player *player, int pos_y)
 {
-	mlx_string_put(mlx_ptr, win_ptr, 30, pos_y + 25, 0xFFFFFF, "LEVEL");
-	mlx_string_put(mlx_ptr, win_ptr, 30, pos_y + 50, 0xFFFFFF,
-		ft_itoa(player->level));
-	mlx_string_put(mlx_ptr, win_ptr, 180, pos_y + 25, 0xFFFFFF, "SCORE");
-	mlx_string_put(mlx_ptr, win_ptr, 180, pos_y + 50, 0xFFFFFF,
-		ft_itoa(player->score));
-	mlx_string_put(mlx_ptr, win_ptr, 330, pos_y + 25, 0xFFFFFF, "HEALTH");
-	mlx_string_put(mlx_ptr, win_ptr, 330, pos_y + 50, 0xFFFFFF,
-		ft_itoa(player->pv));
-	mlx_string_put(mlx_ptr, win_ptr, 580, pos_y + 25, 0xFFFFFF, "ARMS");
-	mlx_string_put(mlx_ptr, win_ptr, 580, pos_y + 50, 0xFFFFFF,
-		ft_itoa(player->arms));
-	mlx_string_put(mlx_ptr, win_ptr, 680, pos_y + 15, 0xFFFFFF, "FORWARD..W");
-	mlx_string_put(mlx_ptr, win_ptr, 680, pos_y + 40, 0xFFFFFF, "BACK.....S");
-	mlx_string_put(mlx_ptr, win_ptr, 680, pos_y + 65, 0xFFFFFF, "RIGHT....D");
-	mlx_string_put(mlx_ptr, win_ptr, 805, pos_y + 65, 0xFFFFFF, "LEFT...A");
-	mlx_string_put(mlx_ptr, win_ptr, 805, pos_y + 15, 0xFFFFFF,
-		"SHOOT..(enter)");
-	mlx_string_put(mlx_ptr, win_ptr, 805, pos_y + 40, 0xFFFFFF,
-		"TAKE...(space)");
+	char *s;
+
+	mlx_string_put(mptr, wptr, 30, pos_y + 25, 0xFFFFFF, "LEVEL");
+	s = ft_itoa(player->level);
+	mlx_string_put(mptr, wptr, 30, pos_y + 50, 0xFFFFFF, s);
+	free_secure(s);
+	mlx_string_put(mptr, wptr, 180, pos_y + 25, 0xFFFFFF, "SCORE");
+	s = ft_itoa(player->score);
+	mlx_string_put(mptr, wptr, 180, pos_y + 50, 0xFFFFFF, s);
+	free_secure(s);
+	mlx_string_put(mptr, wptr, 330, pos_y + 25, 0xFFFFFF, "HEALTH");
+	s = ft_itoa(player->pv);
+	mlx_string_put(mptr, wptr, 330, pos_y + 50, 0xFFFFFF, s);
+	free_secure(s);
+	mlx_string_put(mptr, wptr, 580, pos_y + 25, 0xFFFFFF, "ARMS");
+	s = ft_itoa(player->arms);
+	mlx_string_put(mptr, wptr, 580, pos_y + 50, 0xFFFFFF, s);
+	free_secure(s);
+	mlx_string_put(mptr, wptr, 680, pos_y + 15, 0xFFFFFF, "FORWARD..W");
+	mlx_string_put(mptr, wptr, 680, pos_y + 40, 0xFFFFFF, "BACK.....S");
+	mlx_string_put(mptr, wptr, 680, pos_y + 65, 0xFFFFFF, "RIGHT....D");
+	mlx_string_put(mptr, wptr, 805, pos_y + 65, 0xFFFFFF, "LEFT...A");
+	mlx_string_put(mptr, wptr, 805, pos_y + 15, 0xFFFFFF, "SHOOT..(enter)");
+	mlx_string_put(mptr, wptr, 805, pos_y + 40, 0xFFFFFF, "TAKE...(space)");
 }
 
 void			legend(t_env *e)
