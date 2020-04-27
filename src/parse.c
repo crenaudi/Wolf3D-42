@@ -6,7 +6,7 @@
 /*   By: crenaudi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 17:29:05 by crenaudi          #+#    #+#             */
-/*   Updated: 2020/04/24 18:12:32 by crenaudi         ###   ########.fr       */
+/*   Updated: 2020/04/27 20:38:37 by crenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,7 @@ static int		**compil_map(t_vec2 index, char *comp, int i)
 			if (comp[i] == '\n')
 				abc[x] = 0;
 			else
-			{
-				abc[x] = (comp[i] == '0') ? 0 : 1;
-				i++;
-			}
+				abc[x] = (comp[i++] == '0') ? 0 : 1;
 		}
 		i++;
 		ord[y] = abc;
@@ -68,7 +65,7 @@ static int		**compil_map(t_vec2 index, char *comp, int i)
 static t_vec2	info_datamap(char *comp)
 {
 	int		len;
-	int 	idx;
+	int		idx;
 	t_vec2	i;
 
 	idx = 0;
@@ -95,7 +92,7 @@ static char		*get_fd(const int fd)
 	char	buf[BUFF_SIZE + 1];
 	int		ret;
 	char	*tmp;
-	char 	*result;
+	char	*result;
 
 	ret = 1;
 	tmp = NULL;

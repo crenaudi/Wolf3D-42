@@ -6,7 +6,7 @@
 /*   By: crenaudi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 17:39:01 by crenaudi          #+#    #+#             */
-/*   Updated: 2020/04/24 18:16:33 by crenaudi         ###   ########.fr       */
+/*   Updated: 2020/04/27 20:37:05 by crenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int		main(int argc, char **argv)
 		ft_putendl("Missing arguments");
 		return (0);
 	}
-	if (!(fd = open(argv[1], O_RDONLY | O_NOFOLLOW)))
+	if (!(fd = open(argv[1], O_RDONLY | O_NOFOLLOW | O_NOCTTY)))
 	{
 		wolf3d_error(NULL, 1, "Wrong file");
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: crenaudi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 17:39:42 by crenaudi          #+#    #+#             */
-/*   Updated: 2020/04/27 15:55:29 by crenaudi         ###   ########.fr       */
+/*   Updated: 2020/04/27 20:32:13 by crenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void		color_box(int height, int x_start, int width, t_img *img)
 	}
 }
 
-static void		lgd_txt(void *mptr, void * wptr, t_player *player, int pos_y)
+static void		lgd_txt(void *mptr, void *wptr, t_player *player, int pos_y)
 {
 	char *s;
 
