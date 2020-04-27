@@ -12,7 +12,7 @@
 
 #include "../includes/wolf.h"
 
-static void	print_map(int **map, t_vec2 i)
+static void		print_map(int **map, t_vec2 i)
 {
 	int	x;
 	int	y;
@@ -34,7 +34,7 @@ static void	print_map(int **map, t_vec2 i)
 	ft_putchar('\n');
 }
 
-static int	**compil_map(t_vec2 index, char *comp)
+static int		**compil_map(t_vec2 index, char *comp, int i)
 {
 	int **ord;
 	int *abc;
@@ -51,48 +51,86 @@ static int	**compil_map(t_vec2 index, char *comp)
 		x = -1;
 		while (++x < index.x)
 		{
-			abc[x] = (*comp == '0') ? 0 : 1;
-			comp++;
+			if (comp[i] == '\n')
+				abc[x] = 0;
+			else
+			{
+				abc[x] = (comp[i] == '0') ? 0 : 1;
+				i++;
+			}
 		}
+		i++;
 		ord[y] = abc;
 	}
 	return (ord);
 }
 
-static int	info_map(t_env *e, t_vec2 i, char *comp)
+static t_vec2	info_datamap(char *comp)
 {
+	int		len;
+	int 	idx;
+	t_vec2	i;
+
+	idx = 0;
+	i = 0;
+	while (comp[idx] != '\0')
+	{
+		len = 0;
+		while (comp[idx] != '\n' && comp[idx] != '\0')
+		{
+			len++;
+			idx++;
+		}
+		if (i.x < len)
+			i.x = len;
+		if (comp[idx] != '\0')
+			idx++;
+		i.y++;
+	}
+	return (i);
+}
+
+static char		*get_fd(const int fd)
+{
+	char	buf[BUFF_SIZE + 1];
+	int		ret;
+	char	*tmp;
+	char 	*result;
+
+	ret = 1;
+	tmp = NULL;
+	result = NULL;
+	if (fd < 0)
+		return (NULL);
+	while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
+	{
+		buf[ret] = '\0';
+		tmp = result;
+		result = (result == NULL) ? ft_strdup(buf) : ft_strjoin(result, buf);
+		free_secure(tmp);
+		tmp = NULL;
+	}
+	return (result);
+}
+
+int				map_int(t_env *e, int fd)
+{
+	char	*line;
+	char	*comp;
+	t_vec2	i;
+
+	line = NULL;
+	if ((comp = get_fd(fd)) == NULL)
+		wolf3d_error(e, 1 ^ (1 << 16), "pb fd");
+	i = info_datamap(comp);
 	e->map->size_x = i.x;
 	e->map->size_y = i.y;
 	e->map->width_screen = i.y * BLOCKS;
 	e->map->height_screen = i.x * BLOCKS;
-	if ((e->map->data = compil_map(i, comp)) == NULL)
-		return (ERROR);
-	print_map(e->map->data, i);
-	return (SUCCESS);
-}
-
-int			map_int(t_env *e, int fd)
-{
-	char	*line;
-	char	*lfree;
-	char	*comp;
-	t_vec2	i;
-
-	i = 0;
-	line = NULL;
-	lfree = NULL;
-	comp = NULL;
-	while (get_next_line(fd, &line) == 1)
-	{
-		if (i.x == 0)
-			i.x = ft_strlen(line);
-		comp = (comp == NULL) ? ft_strdup(line) : ft_strjoin(comp, line);
-		lfree = line;
-		free(lfree);
-		i.y += 1;
-	}
-	if (info_map(e, i, comp) == ERROR)
+	e->map->data = compil_map(i, comp, 0);
+	free_secure(comp);
+	if (e->map->data == NULL)
 		wolf3d_error(e, 1 ^ (1 << 16), "can't parse");
-	free(comp);
+	print_map(e->map->data, i);
 	return (SUCCESS);
 }
