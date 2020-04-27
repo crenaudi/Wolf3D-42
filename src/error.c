@@ -14,12 +14,13 @@
 
 void	wolf3d_error(t_env *e, unsigned int err, char *line)
 {
-	char			*s[4] = {"Error malloc : ",
-							"Invalid map : ",
-							"Error texture : ",
-							"Error base_pal : "};
+	char			s[4];
 	unsigned int	close;
 
+	s[0] = "Error malloc : ";
+	s[1] = "Invalid map : ";
+	s[2] = "Error texture : ";
+	s[3] = "Error base_pal : ";
 	close = err >> 16;
 	ft_putstr(s[err & (0 << 16)]);
 	if (line != NULL)

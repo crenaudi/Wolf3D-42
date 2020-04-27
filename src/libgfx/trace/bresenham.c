@@ -42,12 +42,12 @@ t_bresenham		init_trace(t_point p[2], t_vecf3 z)
 	return (b);
 }
 
-static void		putpx(t_img *img, t_vec2 i, int h, int w, int color)
+static void		putpx(t_img *img, t_vec2 i, t_vec2 size, int color)
 {
 	int	index;
 
-	index = i.x + i.y * w;
-	if (index < 0 || index >= h * w)
+	index = i.x + i.y * size.y;
+	if (index < 0 || index >= size.x * size.y)
 		return ;
 	img->data[index] = color;
 }
@@ -60,8 +60,8 @@ void			need_px(t_bresenham *b, t_img *img)
 	x = b->p1.x + ((b->w / 2) + b->tr.y);
 	y = b->p1.y + (((b->h / 2) - (int)b->scl) + b->tr.x);
 	if ((x >= 0 && x <= b->w) && (y >= 0 && y <= (b->h)))
-		putpx(img, (t_vec2){x, y}, b->h, b->w, lerp_color(b->c2, b->c1,
-			fmod(((vecf2_dist(b->p2 - b->p1)) / b->t) + b->bert, 1.0)));
+		putpx(img, (t_vec2){x, y}, (t_vec2){b->h, b->w}, lerp_color(b->c2,
+			b->c1, fmod(((vecf2_dist(b->p2 - b->p1)) / b->t) + b->bert, 1.0)));
 }
 
 void			line(t_bresenham b, t_img *img)
