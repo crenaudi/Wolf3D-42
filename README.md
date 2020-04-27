@@ -1,2 +1,2 @@
-# Wolf3D-42
-algorithme de ray casting
+# wolf3d
+Inspiré du jeux Wolfenstein 3D
