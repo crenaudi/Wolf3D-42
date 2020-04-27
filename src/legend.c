@@ -49,6 +49,7 @@ static void		lgd_txt(void *mptr, void * wptr, t_player *player, int pos_y)
 {
 	char *s;
 
+	s = NULL;
 	mlx_string_put(mptr, wptr, 30, pos_y + 25, 0xFFFFFF, "LEVEL");
 	s = ft_itoa(player->level);
 	mlx_string_put(mptr, wptr, 30, pos_y + 50, 0xFFFFFF, s);
