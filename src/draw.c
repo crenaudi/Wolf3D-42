@@ -6,7 +6,7 @@
 /*   By: crenaudi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 17:46:47 by crenaudi          #+#    #+#             */
-/*   Updated: 2020/04/24 17:47:36 by crenaudi         ###   ########.fr       */
+/*   Updated: 2020/04/27 15:59:16 by crenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ void		draw_wall(t_env *e, t_ray ray, int i[3], float draw[2])
 		if (dist > 7)
 			putpx(e->img, (t_vec2){i[0], i[1]}, Y_SCREEN, 0x000000);
 		else
-			putpx(e->img, (t_vec2){i[0], i[1]}, Y_SCREEN, tx[(int)(orig) * 128 + dx]);
+			putpx(e->img, (t_vec2){i[0], i[1]}, Y_SCREEN,
+					tx[(int)(orig) * 128 + dx]);
 		i[1]++;
 	}
 	ft_bzero(&ray, sizeof(t_ray));

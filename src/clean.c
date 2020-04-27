@@ -6,7 +6,7 @@
 /*   By: crenaudi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 17:47:42 by crenaudi          #+#    #+#             */
-/*   Updated: 2020/04/24 17:54:11 by crenaudi         ###   ########.fr       */
+/*   Updated: 2020/04/27 16:00:01 by crenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	free_secure(void *ptr)
 		ptr = NULL;
 	}
 	else
-	ft_putendl("Free sur ptr NULL");
+		ft_putendl("Free sur ptr NULL");
 }
 
 void	clean(t_env *e)

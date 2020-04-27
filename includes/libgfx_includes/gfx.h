@@ -6,7 +6,7 @@
 /*   By: crenaudi <crenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 18:35:05 by crenaudi          #+#    #+#             */
-/*   Updated: 2020/04/27 14:24:35 by crenaudi         ###   ########.fr       */
+/*   Updated: 2020/04/27 16:01:14 by crenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,7 @@ union					u_rgb
 
 struct					s_bresenham
 {
-	t_vecf3 			tmp;
+	t_vecf3				tmp;
 	t_vecf2				p1;
 	t_vecf2				p2;
 	t_vecf2				dir;

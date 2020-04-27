@@ -6,7 +6,7 @@
 /*   By: crenaudi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 17:39:42 by crenaudi          #+#    #+#             */
-/*   Updated: 2020/04/27 14:58:36 by crenaudi         ###   ########.fr       */
+/*   Updated: 2020/04/27 15:55:29 by crenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void		color_box(int height, int x_start, int width, t_img *img)
 	}
 }
 
-static void		lgd_txt(void *mlx_ptr, void * win_ptr, t_player *player,
+static void		lgd_txt(void *mlx_ptr, void *win_ptr, t_player *player,
 		int pos_y)
 {
 	mlx_string_put(mlx_ptr, win_ptr, 30, pos_y + 25, 0xFFFFFF, "LEVEL");

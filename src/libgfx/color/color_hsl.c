@@ -6,13 +6,13 @@
 /*   By: crenaudi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 17:50:14 by crenaudi          #+#    #+#             */
-/*   Updated: 2020/04/27 14:52:13 by crenaudi         ###   ########.fr       */
+/*   Updated: 2020/04/27 15:54:49 by crenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libgfx_includes/gfx.h"
 
-static t_vecf3	rgbtohsl2(float color[3], t_vecf3 hsl, float min, float	max)
+static t_vecf3	rgbtohsl2(float color[3], t_vecf3 hsl, float min, float max)
 {
 	if (max == color[0])
 		hsl.z = ((color[1] - color[2]) / (max - min)) * 60.0f;

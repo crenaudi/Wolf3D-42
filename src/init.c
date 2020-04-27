@@ -6,7 +6,7 @@
 /*   By: crenaudi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 17:44:55 by crenaudi          #+#    #+#             */
-/*   Updated: 2020/04/27 14:56:33 by crenaudi         ###   ########.fr       */
+/*   Updated: 2020/04/27 15:57:29 by crenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,13 +81,13 @@ void		init_env(t_env *e)
 	e->mlx_ptr = mlx_init();
 	e->win_ptr = mlx_new_window(e->mlx_ptr, WIDTH, HEIGHT, "Wolf3D");
 	if (!(e->srcs[0] = init_image(e->mlx_ptr, X_SCREEN, Y_SCREEN)))
-		wolf3d_error(e, 0  ^ (1 << 16), "srcs[0] init.c line 71");
+		wolf3d_error(e, 0 ^ (1 << 16), "srcs[0] init.c line 71");
 	if (!(e->srcs[1] = init_image(e->mlx_ptr, X_SCREEN, Y_SCREEN)))
-		wolf3d_error(e, 0  ^ (1 << 16), "srcs[1] init.c line 73");
+		wolf3d_error(e, 0 ^ (1 << 16), "srcs[1] init.c line 73");
 	e->img = e->srcs[0];
 	e->nsrc = 0;
 	if (!(e->legend = init_image(e->mlx_ptr, WIDTH, 100)))
-		wolf3d_error(e, 0  ^ (1 << 16), "legend init.c line 77");
+		wolf3d_error(e, 0 ^ (1 << 16), "legend init.c line 77");
 	if ((e->pal = base_pal()) == 0)
 		wolf3d_error(e, 3, "e->pal init.c line 79");
 	e->map = &(e->global.map);

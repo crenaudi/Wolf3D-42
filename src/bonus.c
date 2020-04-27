@@ -6,7 +6,7 @@
 /*   By: padelord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 17:48:05 by padelord          #+#    #+#             */
-/*   Updated: 2020/04/24 17:49:55 by crenaudi         ###   ########.fr       */
+/*   Updated: 2020/04/27 16:02:39 by crenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct		s_fps
 	int				frame;
 }					t_fps;
 
-void fps()
+void				fps(void)
 {
 	static t_fps	data;
 	static int		frame = -1;
