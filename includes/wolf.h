@@ -51,6 +51,8 @@ struct			s_ray
 {
 	int			map_x;
 	int			map_y;
+	int			hit;
+	int			nbw;
 	float		hit_x;
 	float		hit_y;
 	float		tex_x;
@@ -58,13 +60,9 @@ struct			s_ray
 	float		bloc_mx;
 	float		bloc_my;
 	float		bloc_angle;
-	t_vecf2		ray;
-	float		dir_x;
-	float		dir_y;
-	t_vecf2		ray_dist;
 	float		ray_angle;
-	int			hit;
-	int			nbw;
+	t_vecf2		ray;
+	t_vecf2		ray_dist;
 };
 
 struct			s_map

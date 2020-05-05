@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scale.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crenaudi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: crenaudi <crenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 18:31:18 by crenaudi          #+#    #+#             */
-/*   Updated: 2020/04/27 14:28:55 by crenaudi         ###   ########.fr       */
+/*   Updated: 2020/05/02 04:18:42 by padelord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ void		set_scaledframe(t_u32 *src, t_vec2 ssize, t_u32 *dest,
 	}
 }
 
-t_texture	*tx_scaleto(void *mlx, t_texture *src, int x, int y)
+t_texture	*tx_scaleto(t_texture *src, int x, int y)
 {
 	t_texture	*dest;
 	int			i;
 
-	if (!(dest = init_tx(mlx, 0, (t_vec2){x, y}, src->nframes)))
+	if (!(dest = init_tx(0, (t_vec2){x, y}, src->nframes)))
 		return (0);
 	i = -1;
 	while (++i < src->nframes)
@@ -52,10 +52,10 @@ t_texture	*tx_scaleto(void *mlx, t_texture *src, int x, int y)
 	return (dest);
 }
 
-t_texture	*tx_scaleby(void *mlx, t_texture *src, float by)
+t_texture	*tx_scaleby(t_texture *src, float by)
 {
 	if (!src)
 		return (0);
-	return (tx_scaleto(mlx, src, (float)src->size.x * by,
+	return (tx_scaleto(src, (float)src->size.x * by,
 						(float)src->size.y * by));
 }

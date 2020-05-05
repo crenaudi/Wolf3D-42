@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crenaudi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: crenaudi <crenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 17:39:01 by crenaudi          #+#    #+#             */
-/*   Updated: 2020/04/27 20:37:05 by crenaudi         ###   ########.fr       */
+/*   Updated: 2020/05/02 04:39:10 by padelord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ int		main(int argc, char **argv)
 {
 	t_env	e;
 	int		fd;
-	int		i;
 
 	if (argc > 2)
 	{
@@ -73,11 +72,8 @@ int		main(int argc, char **argv)
 		return (0);
 	}
 	init_env(&e);
-	if ((i = map_int(&e, fd)) == ERROR)
-	{
-		ft_putendl("Pb de map");
-		clean(&e);
-	}
+	if (map_int(&e, fd) == ERROR)
+		wolf3d_error(&e, 1 ^ (1 << 16), "parse error");
 	mlx_loop_hook(e.mlx_ptr, run, &e);
 	mlx_hook(e.win_ptr, 2, (1L << 0), key_press, &e);
 	mlx_hook(e.win_ptr, 3, (1L << 1), key_release, &e);

@@ -21,6 +21,7 @@ t_cam2d		init_cam2d(void)
 	c.half_fov = c.fov / 2.0f;
 	c.speed_move = 100.;
 	c.speed_angle = 100.;
+	c.dir = 0;
 	return (c);
 }
 

@@ -6,7 +6,7 @@
 /*   By: crenaudi <crenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 18:35:05 by crenaudi          #+#    #+#             */
-/*   Updated: 2020/04/27 16:01:14 by crenaudi         ###   ########.fr       */
+/*   Updated: 2020/05/02 04:18:13 by padelord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ struct					s_cam2d
 	float				half_fov;
 	float				speed_move;
 	float				speed_angle;
+	t_vecf2				dir;
 };
 
 struct					s_cam3d
@@ -203,15 +204,15 @@ void					clean_cam3d(t_cam3d *c);
 */
 
 t_img					*init_image(void *mlx_ptr, int w, int h);
-t_texture				*init_tx(void *mlx, char *path, t_vec2 size,
+t_texture				*init_tx(char *path, t_vec2 size,
 		int nframe);
 t_sprite				*init_sprite(t_texture *tx, t_u32 mod, int cd,
 		t_vec2 pos);
 int						apply_tx(t_texture txt, t_img *img, t_vec2 pos,
 		int frame);
 int						apply_sprite(t_sprite *spr, t_img *img);
-t_texture				*tx_scaleto(void *mlx, t_texture *src, int x, int y);
-t_texture				*tx_scaleby(void *mlx, t_texture *src, float scale);
+t_texture				*tx_scaleto(t_texture *src, int x, int y);
+t_texture				*tx_scaleby(t_texture *src, float scale);
 void					clean_image(t_img *img, int width, int height);
 void					close_image(t_img *img, void *mlx_ptr, int width,
 		int height);

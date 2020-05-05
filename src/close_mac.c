@@ -6,7 +6,7 @@
 /*   By: crenaudi <crenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 17:47:42 by crenaudi          #+#    #+#             */
-/*   Updated: 2020/04/28 01:46:24 by padelord         ###   ########.fr       */
+/*   Updated: 2020/05/02 03:54:10 by padelord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,7 @@ void	clean(t_env *e)
 	free_secure(e->pal);
 	mlx_destroy_window(e->mlx_ptr, e->win_ptr);
 	ft_putendl("A bientot !");
-	mlx_do_sync(e->mlx_ptr);
 	free(e->mlx_ptr);
 	ft_bzero(e, sizeof(t_env));
-	//while (1);
 	exit(0);
 }

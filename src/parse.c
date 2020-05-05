@@ -52,7 +52,7 @@ static int		**compil_map(t_vec2 index, char *comp, int i)
 		while (++x < index.x)
 		{
 			if (comp[i] == '\n')
-				abc[x] = 0;
+				abc[x] = 1;
 			else
 				abc[x] = (comp[i++] == '0') ? 0 : 1;
 		}

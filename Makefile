@@ -6,7 +6,7 @@
 #    By: crenaudi <crenaudi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/13 14:13:30 by crenaudi          #+#    #+#              #
-#    Updated: 2020/04/27 21:46:51 by padelord         ###   ########.fr        #
+#    Updated: 2020/05/01 02:52:42 by padelord         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,13 +18,26 @@ CC = clang
 CFLAGS = -Wall -Wextra -Werror -g
 CFLAGS += -I./includes/
 
+SRCS = 	main.c		\
+	init.c		\
+	texture.c	\
+	raycast.c	\
+	key.c		\
+	parse.c		\
+	legend.c	\
+	draw.c		\
+	move.c		\
+	error.c
+
 SYS		:=	$(shell uname)
 ifeq ($(SYS), Darwin)
 CFLAGS += -I./includes/libgfx_includes/MacOs
 LDFLAGS = -framework OpenGl -framework AppKit
+SRCS += close_mac.c
 else
 CFLAGS += -I./includes/libgfx_includes/Linux
-LDFLAGS = -lXext -lX11
+LDFLAGS = -lXext -lX11 -lbsd
+SRCS += close_linux.c
 endif
 
 LDFLAGS += -lm
@@ -33,20 +46,7 @@ LDFLAGS += -L./$(LIBFT_FOLDER) -lft
 CFLAGS += -I./includes/libgfx_includes/
 LDFLAGS += -lmlx
 
-
-
 RM = rm -f
-SRCS = 	main.c		\
-	init.c		\
-	texture.c	\
-	raycast.c	\
-	key.c		\
-	parse.c		\
-	legend.c	\
-	clean.c		\
-	draw.c		\
-	move.c		\
-	error.c
 
 SRC	=	$(addprefix src/, $(SRCS))
 
