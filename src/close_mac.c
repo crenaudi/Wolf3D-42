@@ -6,13 +6,13 @@
 /*   By: crenaudi <crenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 17:47:42 by crenaudi          #+#    #+#             */
-/*   Updated: 2020/05/02 03:54:10 by padelord         ###   ########.fr       */
+/*   Updated: 2020/05/07 20:26:01 by crenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf.h"
 
-void	free_secure(void *ptr)
+void		free_secure(void *ptr)
 {
 	if (ptr != NULL)
 	{
@@ -47,10 +47,8 @@ void		close_map(t_map **map)
 	}
 }
 
-void	clean(t_env *e)
+void		clean(t_env *e)
 {
-	char c;
-
 	close_map(&(e->map));
 	close_image(e->srcs[0], e->mlx_ptr, X_SCREEN, Y_SCREEN);
 	close_image(e->srcs[1], e->mlx_ptr, X_SCREEN, Y_SCREEN);

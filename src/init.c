@@ -6,7 +6,7 @@
 /*   By: crenaudi <crenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 17:44:55 by crenaudi          #+#    #+#             */
-/*   Updated: 2020/04/27 21:44:48 by padelord         ###   ########.fr       */
+/*   Updated: 2020/05/07 20:21:48 by crenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ t_u32		*base_pal(void)
 
 void		init_env(t_env *e)
 {
-	ft_bzero(e, sizeof(*e));
 	e->mlx_ptr = mlx_init();
 	e->win_ptr = mlx_new_window(e->mlx_ptr, WIDTH, HEIGHT, "Wolf3D");
 	if (!(e->srcs[0] = init_image(e->mlx_ptr, X_SCREEN, Y_SCREEN)))

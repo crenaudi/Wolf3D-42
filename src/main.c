@@ -6,7 +6,7 @@
 /*   By: crenaudi <crenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 17:39:01 by crenaudi          #+#    #+#             */
-/*   Updated: 2020/05/02 04:39:10 by padelord         ###   ########.fr       */
+/*   Updated: 2020/05/07 20:21:13 by crenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int		main(int argc, char **argv)
 		wolf3d_error(NULL, 1, "Wrong file");
 		return (0);
 	}
+	ft_bzero((void *)&e, sizeof(t_env));
 	init_env(&e);
 	if (map_int(&e, fd) == ERROR)
 		wolf3d_error(&e, 1 ^ (1 << 16), "parse error");
