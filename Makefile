@@ -34,6 +34,7 @@ ifeq ($(SYS), Darwin)
 CFLAGS += -I./includes/libgfx_includes/MacOs
 LDFLAGS = -framework OpenGl -framework AppKit
 SRCS += close_mac.c
+SRCS += mlx_destroy.c
 else
 CFLAGS += -I./includes/libgfx_includes/Linux
 LDFLAGS = -lXext -lX11 -lbsd
