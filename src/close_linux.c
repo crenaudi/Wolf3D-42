@@ -61,8 +61,8 @@ void	clean(t_env *e)
 	close_tx(&(e->wall[3]));
 	free_secure(e->pal);
 	mlx_destroy_window(e->mlx_ptr, e->win_ptr);
-	ft_putendl("A bientot !");
 	mlx_destroy(e->mlx_ptr);
 	ft_bzero(e, sizeof(t_env));
+	ft_putendl("A bientot !");
 	exit(0);
 }

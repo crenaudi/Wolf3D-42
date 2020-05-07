@@ -49,6 +49,8 @@ void		close_map(t_map **map)
 
 void	clean(t_env *e)
 {
+	char c;
+
 	close_map(&(e->map));
 	close_image(e->srcs[0], e->mlx_ptr, X_SCREEN, Y_SCREEN);
 	close_image(e->srcs[1], e->mlx_ptr, X_SCREEN, Y_SCREEN);
@@ -61,8 +63,7 @@ void	clean(t_env *e)
 	close_tx(&(e->wall[3]));
 	free_secure(e->pal);
 	mlx_destroy_window(e->mlx_ptr, e->win_ptr);
-	ft_putendl("A bientot !");
-	free(e->mlx_ptr);
 	ft_bzero(e, sizeof(t_env));
+	ft_putendl("A bientot !");
 	exit(0);
 }
