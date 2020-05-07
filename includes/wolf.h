@@ -37,6 +37,7 @@
 # include <math.h>
 # include <stdlib.h>
 # include "mlx.h"
+# include "mlx_int.h"
 # include "libft.h"
 # include "libgfx_includes/gfx.h"
 
