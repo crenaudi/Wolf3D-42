@@ -6,7 +6,7 @@
 /*   By: crenaudi <crenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 18:31:08 by crenaudi          #+#    #+#             */
-/*   Updated: 2020/05/02 04:38:15 by padelord         ###   ########.fr       */
+/*   Updated: 2020/05/07 19:16:42 by padelord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ static int			getsrc(char *path, t_texture *tx)
 	t_u32	s;
 	int		x;
 	int		y;
+	int		end;
 
 	if ((fd = open(path, O_RDONLY)) == -1)
 		return (0);
@@ -53,8 +54,9 @@ static int			getsrc(char *path, t_texture *tx)
 		if (x == tx->size.x && y / tx->nframes == tx->size.y)
 			if ((read(fd, tx->src, s * 4)) == s * 4)
 			{
+				end = ((read(fd, &end, 4)) != 0) ? 0 : 1;
 				close(fd);
-				return (1);
+				return (end);
 			}
 	}
 	close(fd);
