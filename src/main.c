@@ -12,7 +12,13 @@
 
 #include "../includes/wolf.h"
 
-void	putpx(t_img *img, t_vec2 i, int h, int color)
+static int		fx_close_hook(void *param)
+{
+	clean((t_env *)param);
+	return (1);
+}
+
+void			putpx(t_img *img, t_vec2 i, int h, int color)
 {
 	int	index;
 
@@ -22,7 +28,7 @@ void	putpx(t_img *img, t_vec2 i, int h, int color)
 	img->data[index] = color;
 }
 
-void	color_base(t_img *img, t_u32 *pal)
+void			color_base(t_img *img, t_u32 *pal)
 {
 	t_vec2	size;
 	t_u32	*tab;
@@ -39,7 +45,7 @@ void	color_base(t_img *img, t_u32 *pal)
 	}
 }
 
-int		run(t_env *e)
+int				run(t_env *e)
 {
 	check_move(e);
 	if (e->pal != 0)
@@ -56,7 +62,7 @@ int		run(t_env *e)
 	return (SUCCESS);
 }
 
-int		main(int argc, char **argv)
+int				main(int argc, char **argv)
 {
 	t_env	e;
 	int		fd;
@@ -78,6 +84,7 @@ int		main(int argc, char **argv)
 	mlx_loop_hook(e.mlx_ptr, run, &e);
 	mlx_hook(e.win_ptr, 2, (1L << 0), key_press, &e);
 	mlx_hook(e.win_ptr, 3, (1L << 1), key_release, &e);
+	mlx_hook(e.win_ptr, 17, 0, fx_close_hook, &e);
 	mlx_loop(e.mlx_ptr);
 	return (0);
 }

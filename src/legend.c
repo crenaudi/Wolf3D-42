@@ -69,9 +69,9 @@ static void		lgd_txt(void *mptr, void *wptr, t_player *player, int pos_y)
 	mlx_string_put(mptr, wptr, 680, pos_y + 15, 0xFFFFFF, "FORWARD..W");
 	mlx_string_put(mptr, wptr, 680, pos_y + 40, 0xFFFFFF, "BACK.....S");
 	mlx_string_put(mptr, wptr, 680, pos_y + 65, 0xFFFFFF, "RIGHT....D");
-	mlx_string_put(mptr, wptr, 805, pos_y + 65, 0xFFFFFF, "LEFT...A");
-	mlx_string_put(mptr, wptr, 805, pos_y + 15, 0xFFFFFF, "SHOOT..(enter)");
-	mlx_string_put(mptr, wptr, 805, pos_y + 40, 0xFFFFFF, "TAKE...(space)");
+	mlx_string_put(mptr, wptr, 805, pos_y + 65, 0xFFFFFF, "LEFT.....A");
+	mlx_string_put(mptr, wptr, 805, pos_y + 15, 0xFFFFFF, "SHOOT....(space)");
+	mlx_string_put(mptr, wptr, 805, pos_y + 40, 0xFFFFFF, "ROTATE...<- / ->");
 }
 
 void			legend(t_env *e)
