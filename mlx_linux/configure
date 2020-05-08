@@ -52,10 +52,8 @@ for inc in \
 
 
 if [ "$conf_inc" = "NO" ]; then
-	echo "Can't find a suitable X11 include directory."
+	echo "\033[0;32m	[STOP]	\033[0m	Can't find a suitable X11 include directory."
 	exit
-else
-	echo "X11 include dir : $conf_inc"
 fi
 
 if [ -z "$HOSTTYPE" ]; then
@@ -78,12 +76,12 @@ cat test/Makefile.mk | grep -v %%%% >> test/Makefile.gen
 
 
 if [ -n "$1" -a "$1" = "clean" ] ; then
-    echo "Now make it clean."
+    echo "\033[0;34m [CLEAN][SUCCESS] \033[0m"
     make -f Makefile.gen clean
     (cd test ; make -f Makefile.gen clean)
     exit
 fi
 
-echo "Now make it."
+echo "\033[0;33m Compiling :\033[0m MinilibX"
 make -f Makefile.gen all
 (cd test ; make -f Makefile.gen all )
