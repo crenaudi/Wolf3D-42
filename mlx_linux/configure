@@ -64,12 +64,6 @@ else
     conf_ht=$HOSTTYPE
 fi
 
-if [ -z "$conf_ht" ]; then
-    conf_docp=""
-else
-    conf_docp="do_cp"
-    echo "lib_$conf_ht generation"
-fi
 
 
 /bin/echo "INC=$conf_inc" > Makefile.gen

@@ -6,7 +6,7 @@
 #    By: crenaudi <crenaudi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/13 14:13:30 by crenaudi          #+#    #+#              #
-#    Updated: 2020/05/08 13:31:02 by padelord         ###   ########.fr        #
+#    Updated: 2020/05/08 16:13:51 by padelord         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,17 +36,18 @@ CFLAGS += -I./includes/libgfx_includes/
 
 SYS		:=	$(shell uname)
 ifeq ($(SYS), Darwin)
-CFLAGS += -I./includes/libgfx_includes/MacOs -I./mlx_macos
+MLX_FOLDER = "mlx_macos"
+CFLAGS += -I./includes/libgfx_includes/MacOs
 LDFLAGS += -framework OpenGl -framework AppKit
-LDFLAGS += -L./mlx_macos -lmlx
+LDFLAGS += -lmlx
 SRCS += close_mac.c
 else
 CFLAGS += -I./includes/libgfx_includes/Linux -I./mlx_linux
+MLX_FOLDER = "mlx_linux"
 LDFLAGS += -lXext -lX11 -lbsd
 LDFLAGS += -L./mlx_linux -lmlx
 SRCS += close_linux.c
 endif
-
 
 RM = rm -f
 
@@ -63,16 +64,11 @@ OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-ifeq ($(SYS), Darwin)
-$(MLX): mlx_macos/lmlx.a
-		@make -sC mlx_macos
-else
-$(MLX):	mlx_linux/lmlx.a
-		@make -sC mlx_linux
-endif
-
 $(NAME): $(OBJ)
 	@make -sC $(LIBFT_FOLDER)
+ifneq ($(SYS), Darwin)
+	@make -sC mlx_linux
+endif
 	@make -sC $(LIBGFX_FOLDER)
 	@echo -n "\033[0;33m Compiling :\033[0m $(NAME)"
 	@$(CC) -o $(NAME) -g3 $(OBJ) $(LDFLAGS)
@@ -81,6 +77,9 @@ $(NAME): $(OBJ)
 clean:
 	@$(RM) $(OBJ)
 	@make -sC $(LIBFT_FOLDER) clean
+ifneq ($(SYS), Darwin)
+	@make -sC mlx_linux clean
+endif
 	@make -sC $(LIBGFX_FOLDER) clean
 	@echo		"\033[0;34m [CLEAN][SUCCESS] \033[0m"
 

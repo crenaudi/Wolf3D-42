@@ -1,6 +1,6 @@
 INC=/usr/include
 HT=Linux
-DOCP=do_cp
+DOCP=
 ##
 ## Makefile for MiniLibX in /home/boulon/work/c/raytraceur/minilibx
 ##
