@@ -6,7 +6,7 @@
 #    By: crenaudi <crenaudi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/13 14:13:30 by crenaudi          #+#    #+#              #
-#    Updated: 2020/05/01 02:52:42 by padelord         ###   ########.fr        #
+#    Updated: 2020/05/08 13:31:02 by padelord         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,22 +29,24 @@ SRCS = 	main.c		\
 	move.c		\
 	error.c
 
-SYS		:=	$(shell uname)
-ifeq ($(SYS), Darwin)
-CFLAGS += -I./includes/libgfx_includes/MacOs
-LDFLAGS = -framework OpenGl -framework AppKit
-SRCS += close_mac.c
-else
-CFLAGS += -I./includes/libgfx_includes/Linux
-LDFLAGS = -lXext -lX11 -lbsd
-SRCS += close_linux.c
-endif
-
-LDFLAGS += -lm
+LDFLAGS = -lm
 LDFLAGS += -L./$(LIBGFX_FOLDER) -lgfx
 LDFLAGS += -L./$(LIBFT_FOLDER) -lft
 CFLAGS += -I./includes/libgfx_includes/
-LDFLAGS += -lmlx
+
+SYS		:=	$(shell uname)
+ifeq ($(SYS), Darwin)
+CFLAGS += -I./includes/libgfx_includes/MacOs -I./mlx_macos
+LDFLAGS += -framework OpenGl -framework AppKit
+LDFLAGS += -L./mlx_macos -lmlx
+SRCS += close_mac.c
+else
+CFLAGS += -I./includes/libgfx_includes/Linux -I./mlx_linux
+LDFLAGS += -lXext -lX11 -lbsd
+LDFLAGS += -L./mlx_linux -lmlx
+SRCS += close_linux.c
+endif
+
 
 RM = rm -f
 
@@ -60,6 +62,14 @@ OBJ = $(SRC:.c=.o)
 .PHONY: all fclean re
 
 all: $(NAME)
+
+ifeq ($(SYS), Darwin)
+$(MLX): mlx_macos/lmlx.a
+		@make -sC mlx_macos
+else
+$(MLX):	mlx_linux/lmlx.a
+		@make -sC mlx_linux
+endif
 
 $(NAME): $(OBJ)
 	@make -sC $(LIBFT_FOLDER)

@@ -6,7 +6,7 @@
 #    By: crenaudi <crenaudi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/13 14:13:30 by crenaudi          #+#    #+#              #
-#    Updated: 2020/04/25 04:10:39 by padelord         ###   ########.fr        #
+#    Updated: 2020/05/08 13:29:10 by padelord         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,17 @@ CFLAGS = -Wall -Wextra
 CFLAGS += -Werror
 CFLAGS += -I../../includes/libgfx_includes/
 CFLAGS += -I../../includes/
+
+ifeq ($(SYS), Darwin)
+CFLAGS += -I./../../mlx_macos
+LDFLAGS = -framework OpenGl -framework AppKit
+SRCS += close_mac.c
+else
+CFLAGS += -I./../../mlx_linux
+LDFLAGS = -lXext -lX11 -lbsd
+SRCS += close_linux.c
+endif
+
 SMATHS	=	distance.c			\
 			normalize.c			\
 			product.c			\
