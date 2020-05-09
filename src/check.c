@@ -6,12 +6,31 @@
 /*   By: padelord <padelord@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/09 23:27:43 by padelord          #+#    #+#             */
-/*   Updated: 2020/05/10 00:35:54 by padelord         ###   ########.fr       */
+/*   Updated: 2020/05/10 01:23:28 by padelord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf.h"
 #include "libft.h"
+
+int			check_border(int x, int y, int **map)
+{
+	int		i;
+
+	i = -1;
+	while (++i < y)
+	{
+		if (map[i][0] == 0 || map[i][x] == 0)
+			return (0);
+	}
+	i = -1;
+	while (++i < x)
+	{
+		if (map[0][i] == 0 || map[y][i] == 0)
+			return (0);
+	}
+	return (1);
+}
 
 int		check_param(char *path, char *ext)
 {
