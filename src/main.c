@@ -6,7 +6,7 @@
 /*   By: crenaudi <crenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 17:39:01 by crenaudi          #+#    #+#             */
-/*   Updated: 2020/05/09 20:46:52 by padelord         ###   ########.fr       */
+/*   Updated: 2020/05/09 23:12:01 by padelord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int				main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		ft_putendl("Wrong map");
+		ft_putendl("Usage :\n./wolf3d pathOfMap");
 		return (0);
 	}
 	if (!(fd = open(argv[1], O_RDONLY | O_NOFOLLOW | O_NOCTTY)))
