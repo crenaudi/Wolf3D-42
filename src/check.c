@@ -31,18 +31,18 @@ void	check_player(t_env *e)
 	int	y;
 
 	if (e->map->size_x < 3 || e->map->size_y < 3)
-		wolf3d_error(e, 1 | (1 << 16), "map too short,
-			x and y must be greater than 3");
+		wolf3d_error(e, 1 | (1 << 16),
+			"map too short, x and y must be greater than 3");
 	y = 0;
-	while (y < e->map->size_y)
+	while (y < e->map->size_y - 1)
 	{
 		x = 0;
-		while (x < e->map->size_x)
+		while (x < e->map->size_x - 1)
 		{
 			if (e->map->data[y][x] == 0)
 			{
-				e->player->pos_y += 1;
-				e->player->pos_x += 1;
+				e->player->pos_y = y;
+				e->player->pos_x = x;
 				e->player->coord_x = (float)(e->player->pos_x) + 0.5;
 				e->player->coord_y = (float)(e->player->pos_y) + 0.5;
 				return ;
