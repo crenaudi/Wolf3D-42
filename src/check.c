@@ -30,6 +30,8 @@ void	check_player(t_env *e)
 	int	x;
 	int	y;
 
+	if (e->map->size_x < 3 || e->map->size_y < 3)
+		wolf3d_error(e, 1 | (1 << 16), "map too short");
 	y = 0;
 	while (y < e->map->size_y)
 	{
