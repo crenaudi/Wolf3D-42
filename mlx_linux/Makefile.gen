@@ -33,11 +33,16 @@ SRC	= mlx_init.c mlx_destroy.c mlx_new_window.c mlx_pixel_put.c mlx_loop.c \
 OBJ	=$(SRC:.c=.o)
 CFLAGS	= -O3 -I$(INC)
 
+%.o: %.c
+	@echo -n "\033[0;33m Compiling :\033[0m $@"
+	@$(CC) -o $@ -c $< -I./includes/ $(CFLAGS) 2>/dev/null
+	@echo "\033[0;32m [OK] \033[0m"
+
 all	: $(NAME) $(DOCP)
 
 $(NAME)	: $(OBJ)
-	ar -r $(NAME) $(OBJ)
-	ranlib $(NAME)
+	@ar -r $(NAME) $(OBJ) 2>/dev/null
+	@ranlib $(NAME)
 
 do_cp	:
 	cp $(NAME) libmlx_$(HT).a
