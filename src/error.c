@@ -22,7 +22,7 @@ void	wolf3d_error(t_env *e, unsigned int err, char *line)
 	s[2] = "Error texture : ";
 	s[3] = "Error base_pal : ";
 	close = err >> 16;
-	ft_putstr(s[err & (0 << 16)]);
+	ft_putstr(s[err ^ (1 << 16)]);
 	if (line != NULL)
 		ft_putendl(line);
 	if (close == 1)

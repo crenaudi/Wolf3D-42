@@ -46,5 +46,5 @@ void	check_player(t_env *e)
 		}
 		y++;
 	}
-	wolf3d_error(e,  1 | (1 << 16), "no block for player");
+	wolf3d_error(e, 1 | (1 << 16), "no block for player");
 }
