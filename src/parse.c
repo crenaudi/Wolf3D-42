@@ -118,7 +118,7 @@ int				map_int(t_env *e, int fd)
 
 	line = NULL;
 	if ((comp = get_fd(fd)) == NULL)
-		wolf3d_error(e, 1 ^ (1 << 16), "pb fd");
+		wolf3d_error(e, 2 ^ (1 << 16), "wrong fd");
 	i = info_datamap(comp);
 	e->map->size_x = i.x;
 	e->map->size_y = i.y;

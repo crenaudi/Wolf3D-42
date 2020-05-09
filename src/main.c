@@ -67,9 +67,9 @@ int				main(int argc, char **argv)
 	t_env	e;
 	int		fd;
 
-	if (argc > 2)
+	if (argc != 2)
 	{
-		ft_putendl("Missing arguments");
+		ft_putendl("Wrong map");
 		return (0);
 	}
 	if (!(fd = open(argv[1], O_RDONLY | O_NOFOLLOW | O_NOCTTY)))
