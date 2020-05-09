@@ -12,7 +12,6 @@
 
 #include "wolf.h"
 #include "libft.h"
-#include <stdio.h>
 
 int		check_param(char *path, char *ext)
 {
