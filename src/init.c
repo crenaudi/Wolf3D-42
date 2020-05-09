@@ -28,8 +28,8 @@ t_player	init_player(void)
 {
 	t_player	p;
 
-	p.pos_y = 2;
-	p.pos_x = 1;
+	p.pos_y = 0;
+	p.pos_x = 0;
 	p.coord_x = (float)(p.pos_x) + 0.5;
 	p.coord_y = (float)(p.pos_y) + 0.5;
 	p.eyes_dir = 0.0f;

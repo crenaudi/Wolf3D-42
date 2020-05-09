@@ -141,7 +141,8 @@ t_vecf2			get_newpos(t_vecf2 dir, t_vecf2 coord, t_map map);
 int				move_player(t_player *plr, t_vec2 dir, t_map map, float speed);
 void			clean(t_env *e);
 void			clean_tab(int **map, int y);
-int		check_param(char *path, char *ext);
+int				check_param(char *path, char *ext);
+void			check_player(t_env *e);
 
 
 #endif

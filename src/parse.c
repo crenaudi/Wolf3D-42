@@ -127,7 +127,8 @@ int				map_int(t_env *e, int fd)
 	e->map->data = compil_map(i, comp, 0);
 	free_secure(comp);
 	if (e->map->data == NULL)
-		wolf3d_error(e, 1 ^ (1 << 16), "can't parse");
+		wolf3d_error(e, 1 | (1 << 16), "can't parse");
+	check_player(e);
 	print_map(e->map->data, i);
 	return (SUCCESS);
 }
