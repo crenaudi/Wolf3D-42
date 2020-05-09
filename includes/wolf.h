@@ -6,7 +6,7 @@
 /*   By: crenaudi <crenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 18:18:36 by crenaudi          #+#    #+#             */
-/*   Updated: 2020/05/09 20:46:27 by padelord         ###   ########.fr       */
+/*   Updated: 2020/05/09 23:33:19 by padelord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@
 # define API_4		0.7853982
 # define API_34		2.3561945
 
-# include <stdio.h>
 # include <math.h>
 # include <stdlib.h>
 # include "mlx.h"
@@ -142,5 +141,7 @@ t_vecf2			get_newpos(t_vecf2 dir, t_vecf2 coord, t_map map);
 int				move_player(t_player *plr, t_vec2 dir, t_map map, float speed);
 void			clean(t_env *e);
 void			clean_tab(int **map, int y);
+int		check_param(char *path, char *ext);
+
 
 #endif

@@ -6,11 +6,11 @@
 /*   By: crenaudi <crenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 17:39:01 by crenaudi          #+#    #+#             */
-/*   Updated: 2020/05/09 23:12:01 by padelord         ###   ########.fr       */
+/*   Updated: 2020/05/09 23:30:00 by padelord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/wolf.h"
+#include "wolf.h"
 
 static int		fx_close_hook(void *param)
 {
@@ -67,9 +67,9 @@ int				main(int argc, char **argv)
 	t_env	e;
 	int		fd;
 
-	if (argc != 2)
+	if (!(argc == 2 && check_param(argv[1], ".map")))
 	{
-		ft_putendl("Usage :\n./wolf3d pathOfMap");
+		ft_putendl("Usage :\n./wolf3d file.map");
 		return (0);
 	}
 	if (!(fd = open(argv[1], O_RDONLY | O_NOFOLLOW | O_NOCTTY)))

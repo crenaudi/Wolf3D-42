@@ -6,7 +6,7 @@
 /*   By: crenaudi <crenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 18:35:05 by crenaudi          #+#    #+#             */
-/*   Updated: 2020/05/02 04:18:13 by padelord         ###   ########.fr       */
+/*   Updated: 2020/05/09 23:34:15 by padelord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 # define GFX_H
 
-# include <stdio.h>
 # include <stdbool.h>
 # include <math.h>
 # include "mlx.h"

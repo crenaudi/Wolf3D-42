@@ -6,7 +6,7 @@
 #    By: crenaudi <crenaudi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/13 14:13:30 by crenaudi          #+#    #+#              #
-#    Updated: 2020/05/08 16:13:51 by padelord         ###   ########.fr        #
+#    Updated: 2020/05/09 23:30:36 by padelord         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,15 +19,17 @@ CFLAGS = -Wall -Wextra -Werror -g
 CFLAGS += -I./includes/
 
 SRCS = 	main.c		\
-	init.c		\
-	texture.c	\
-	raycast.c	\
-	key.c		\
-	parse.c		\
-	legend.c	\
-	draw.c		\
-	move.c		\
-	error.c
+		init.c		\
+		texture.c	\
+		raycast.c	\
+		key.c		\
+		parse.c		\
+		legend.c	\
+		draw.c		\
+		move.c		\
+		error.c		\
+		check.c		\
+		close.c
 
 LDFLAGS = -lm
 LDFLAGS += -L./$(LIBGFX_FOLDER) -lgfx
@@ -40,13 +42,11 @@ MLX_FOLDER = "mlx_macos"
 CFLAGS += -I./includes/libgfx_includes/MacOs
 LDFLAGS += -framework OpenGl -framework AppKit
 LDFLAGS += -lmlx
-SRCS += close_mac.c
 else
 CFLAGS += -I./includes/libgfx_includes/Linux -I./mlx_linux
 MLX_FOLDER = "mlx_linux"
 LDFLAGS += -lXext -lX11 -lbsd
 LDFLAGS += -L./mlx_linux -lmlx
-SRCS += close_linux.c
 endif
 
 RM = rm -f
