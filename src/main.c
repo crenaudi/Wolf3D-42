@@ -6,7 +6,7 @@
 /*   By: crenaudi <crenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 17:39:01 by crenaudi          #+#    #+#             */
-/*   Updated: 2020/05/07 20:21:13 by crenaudi         ###   ########.fr       */
+/*   Updated: 2020/05/09 20:46:52 by padelord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int		fx_close_hook(void *param)
 {
-	clean((t_env *)param);
+	clean((t_env*)param);
 	return (1);
 }
 
@@ -84,7 +84,7 @@ int				main(int argc, char **argv)
 	mlx_loop_hook(e.mlx_ptr, run, &e);
 	mlx_hook(e.win_ptr, 2, (1L << 0), key_press, &e);
 	mlx_hook(e.win_ptr, 3, (1L << 1), key_release, &e);
-	mlx_hook(e.win_ptr, 17, 0, fx_close_hook, &e);
+	mlx_hook(e.win_ptr, 17, (1L << 17), fx_close_hook, &e);
 	mlx_loop(e.mlx_ptr);
 	return (0);
 }

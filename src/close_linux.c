@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean.c                                            :+:      :+:    :+:   */
+/*   close_linux.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crenaudi <crenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 17:47:42 by crenaudi          #+#    #+#             */
-/*   Updated: 2020/05/07 20:25:47 by crenaudi         ###   ########.fr       */
+/*   Updated: 2020/05/09 20:50:42 by padelord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void		clean(t_env *e)
 	close_tx(&(e->wall[3]));
 	free_secure(e->pal);
 	mlx_destroy_window(e->mlx_ptr, e->win_ptr);
-	mlx_destroy(e->mlx_ptr);
 	ft_bzero(e, sizeof(t_env));
 	ft_putendl("A bientot !");
 	exit(0);
