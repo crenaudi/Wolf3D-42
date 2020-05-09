@@ -19,8 +19,6 @@ void		free_secure(void *ptr)
 		free(ptr);
 		ptr = NULL;
 	}
-	else
-		ft_putendl("Free sur ptr NULL");
 }
 
 void		close_map(t_map **map)
