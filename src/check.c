@@ -6,7 +6,7 @@
 /*   By: padelord <padelord@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/09 23:27:43 by padelord          #+#    #+#             */
-/*   Updated: 2020/05/10 15:31:16 by padelord         ###   ########.fr       */
+/*   Updated: 2020/05/10 16:32:31 by padelord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ int		check_border(int x, int y, int **map)
 	i = -1;
 	while (++i < y)
 	{
-		if (map[i][0] == 0 || map[i][x] == 0)
+		if (map[i][0] == 0 || map[i][x - 1] == 0)
 			return (0);
 	}
 	i = -1;
 	while (++i < x)
 	{
-		if (map[0][i] == 0 || map[y][i] == 0)
+		if (map[0][i] == 0 || map[y - 1][i] == 0)
 			return (0);
 	}
 	return (1);

@@ -6,7 +6,7 @@
 #    By: crenaudi <crenaudi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/13 14:13:30 by crenaudi          #+#    #+#              #
-#    Updated: 2020/05/08 13:29:10 by padelord         ###   ########.fr        #
+#    Updated: 2020/05/10 01:01:31 by padelord         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,14 +71,16 @@ CFLAGS += -I../../includes/libgfx_includes/Linux/
 endif
 
 %.o: %.c
-	$(CC) $(CFLAGS) -o $@ -c $<
+	@echo -n "\033[0;33m Compiling :\033[0m $@"
+	@$(CC) $(CFLAGS) -o $@ -c $<
+	@echo "\033[0;32m [OK] \033[0m"
 
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@echo		"\033[0;32m [OK] \033[0m       \033[0;33m Compiling: Libgfx.a\033[0m"
+	@echo		"\033[0;32m [OK] \033[0m       \033[0;33m Compiling: libgfx.a\033[0m"
 	@$(AR) $(NAME) $(OBJ)
 	@$(RL) $(NAME)
 	@echo		"\033[0;33m [LIBGFX][SUCCESS] \033[0m"
