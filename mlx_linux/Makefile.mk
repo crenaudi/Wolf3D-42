@@ -41,8 +41,10 @@ CFLAGS	= -O3 -I$(INC)
 all	: $(NAME) $(DOCP)
 
 $(NAME)	: $(OBJ)
+	@echo		"\033[0;32m [OK] \033[0m       \033[0;33m Compiling: libmlx.a\033[0m"
 	@ar -r $(NAME) $(OBJ) 2>/dev/null
 	@ranlib $(NAME)
+	@echo		"\033[0;33m [MiniLibX][SUCCESS] \033[0m"
 
 do_cp	:
 	cp $(NAME) libmlx_$(HT).a
