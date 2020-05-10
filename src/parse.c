@@ -107,6 +107,11 @@ static char		*get_fd(const int fd)
 		free_secure(tmp);
 		tmp = NULL;
 	}
+	if (check_map(result) == ERROR)
+	{
+		free_secure(result);
+		return (NULL);
+	}
 	return (result);
 }
 

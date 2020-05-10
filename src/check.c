@@ -44,6 +44,19 @@ int		check_param(char *path, char *ext)
 	return (!(ft_strcmp(path + sp - se, ext)));
 }
 
+int 	check_map(char *data)
+{
+	int	i;
+
+	i = -1;
+	while (data[++i] != '\0')
+	{
+		if (data[i] != 0 || data[i] != 1 || data[i] != '\n')
+			return (ERROR);
+	}
+	return (SUCCESS);
+}
+
 void	check_player(t_env *e)
 {
 	int	x;
