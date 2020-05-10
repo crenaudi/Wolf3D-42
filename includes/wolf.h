@@ -6,7 +6,7 @@
 /*   By: crenaudi <crenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 18:18:36 by crenaudi          #+#    #+#             */
-/*   Updated: 2020/05/09 23:33:19 by padelord         ###   ########.fr       */
+/*   Updated: 2020/05/10 15:25:41 by padelord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,6 +143,7 @@ void			clean(t_env *e);
 void			clean_tab(int **map, int y);
 int				check_param(char *path, char *ext);
 void			check_player(t_env *e);
+int				check_border(int x, int y, int **map);
 int				check_map(char *data);
 
 #endif

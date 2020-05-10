@@ -6,7 +6,7 @@
 /*   By: padelord <padelord@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/09 23:27:43 by padelord          #+#    #+#             */
-/*   Updated: 2020/05/10 01:23:28 by padelord         ###   ########.fr       */
+/*   Updated: 2020/05/10 15:31:16 by padelord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ int		check_map(char *data)
 	int	i;
 
 	i = -1;
-	while (data[++i] != '\0')
+	while (data[++i])
 	{
-		if (data[i] != 0 || data[i] != 1 || data[i] != '\n')
+		if (data[i] != '0' && data[i] != '1' && data[i] != '\n')
 			return (ERROR);
 	}
 	return (SUCCESS);

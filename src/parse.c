@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crenaudi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: crenaudi <crenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 17:29:05 by crenaudi          #+#    #+#             */
-/*   Updated: 2020/04/27 20:38:37 by crenaudi         ###   ########.fr       */
+/*   Updated: 2020/05/10 15:31:48 by padelord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ static char		*get_fd(const int fd)
 	}
 	if (check_map(result) == ERROR)
 	{
+		ft_putendl(result);
 		free_secure(result);
 		return (NULL);
 	}
@@ -133,6 +134,8 @@ int				map_int(t_env *e, int fd)
 	free_secure(comp);
 	if (e->map->data == NULL)
 		wolf3d_error(e, 1 | (1 << 16), "can't parse");
+	if (!(check_border(e->map->size_x, e->map->size_y, e->map->data)))
+		wolf3d_error(e, 1 | (1 << 16), "Border must be walls");
 	check_player(e);
 	print_map(e->map->data, i);
 	return (SUCCESS);
