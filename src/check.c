@@ -13,7 +13,7 @@
 #include "wolf.h"
 #include "libft.h"
 
-int			check_border(int x, int y, int **map)
+int		check_border(int x, int y, int **map)
 {
 	int		i;
 
@@ -44,7 +44,7 @@ int		check_param(char *path, char *ext)
 	return (!(ft_strcmp(path + sp - se, ext)));
 }
 
-int 	check_map(char *data)
+int		check_map(char *data)
 {
 	int	i;
 
