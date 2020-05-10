@@ -143,6 +143,6 @@ void			clean(t_env *e);
 void			clean_tab(int **map, int y);
 int				check_param(char *path, char *ext);
 void			check_player(t_env *e);
-int 			check_map(char *data);
+int				check_map(char *data);
 
 #endif
