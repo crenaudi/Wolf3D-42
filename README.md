@@ -1,5 +1,5 @@
 # Wolf3D-42
-Algorithme de ray casting
+Ray casting (avec le travail de Padelord sur les textures)
 
 Source de travaille :
 
